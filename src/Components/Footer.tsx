@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <div className="footer-main">
       <div className="thanks">
-        <div>
+        {/* <div>
           Website heavily inspired by{" "}
           <a
             className="link-footer"
@@ -14,7 +14,7 @@ export function Footer() {
           >
             Li Yuan
           </a>
-        </div>
+        </div>*/}
         <div className="email">
           Don't hesitate to contact me:{" "}
           <a href="mailto:erenhomburg@gmail.com" className="link-footer">

@@ -9,6 +9,7 @@ import zurich from "../assets/Zurich.jpg";
 import AboutMe from "./AboutMe";
 import Resume from "./Resume";
 import Projects from "./Projects";
+import { useRevealOnView } from "../Helpers/DataReveal";
 
 const PHRASES = [
   { text: "The early bird catches the worm.", lang: "en" },
@@ -90,6 +91,10 @@ function Homepage() {
     return () => clearInterval(id);
   }, []);
 
+  // Reveal sections on scroll
+  // This will add the 'is-visible' class to sections when they come into view
+  useRevealOnView(".section[data-reveal]", 0 /* ms */);
+
   return (
     <div className="container-homepage">
       <section id="home" className="section hero-section">
@@ -113,15 +118,24 @@ function Homepage() {
         </p>
       </section>
 
-      <section id="about" className="section">
+      <section id="about" className="section" data-reveal>
+        <div className="section-bar">
+          <div className="section-bar-fill"></div>
+        </div>
         <h1>About Me</h1>
         <AboutMe />
       </section>
-      <section id="resume" className="section">
+      <section id="resume" className="section" data-reveal>
+        <div className="section-bar">
+          <div className="section-bar-fill"></div>
+        </div>
         <h1>Resume</h1>
         <Resume />
       </section>
-      <section id="projects" className="section">
+      <section id="projects" className="section" data-reveal>
+        <div className="section-bar">
+          <div className="section-bar-fill"></div>
+        </div>
         <h1>Projects</h1>
         <Projects />
       </section>

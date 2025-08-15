@@ -23,6 +23,8 @@
   --indicator-border: rgba(0, 0, 0, 0.45);
   --indicator-color: rgba(128, 128, 128, 0.15);
   --footer-link-color: rgb(56, 56, 250);
+  --background-bar: #888;
+  --forground-bar: #ddd;
 }
 
 :root[data-theme="dark"] {
@@ -35,6 +37,8 @@
   --indicator-border: rgba(255, 255, 255, 0.75);
   --indicator-color: rgba(128, 128, 128, 0.15);
   --footer-link-color: rgb(172, 172, 245);
+  --background-bar: #ddd;
+  --forground-bar: #5c5c5c;
 }
 
 html {
