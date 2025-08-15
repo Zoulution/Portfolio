@@ -32,11 +32,28 @@ export function Header() {
   });
 
   useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 0);
-    }
+    const getTop = () =>
+      document.scrollingElement?.scrollTop ??
+      window.pageYOffset ??
+      window.scrollY ??
+      0;
+
+    const onScroll = () => setScrolled(getTop() > 0);
+
+    onScroll();
+
+    const raf = requestAnimationFrame(onScroll);
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("hashchange", onScroll);
+    window.addEventListener("load", onScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", onScroll);
+      window.removeEventListener("load", onScroll);
+    };
   }, []);
 
   useEffect(() => {

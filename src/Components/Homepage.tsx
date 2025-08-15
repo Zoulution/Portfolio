@@ -6,6 +6,9 @@ import novazzano from "../assets/Novazzano.jpg";
 import stGeorgen from "../assets/stGeorgen.jpeg";
 import vienenburg from "../assets/Vienenburg.jpg";
 import zurich from "../assets/Zurich.jpg";
+import AboutMe from "./AboutMe";
+import Resume from "./Resume";
+import Projects from "./Projects";
 
 const PHRASES = [
   { text: "The early bird catches the worm.", lang: "en" },
@@ -109,15 +112,15 @@ function Homepage() {
 
       <section id="about" className="section">
         <h1>About Me</h1>
-        {/* content */}
+        <AboutMe />
       </section>
       <section id="resume" className="section">
         <h1>Resume</h1>
-        {/* content */}
+        <Resume />
       </section>
       <section id="projects" className="section">
         <h1>Projects</h1>
-        {/* content */}
+        <Projects />
       </section>
       <Footer />
     </div>
