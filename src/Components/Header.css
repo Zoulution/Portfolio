@@ -12,6 +12,7 @@
   align-items: center;
   padding: 0 20px;
   color: var(--text-color);
+  background-color: var(--header-bg);
   width: 100%;
   box-sizing: border-box;
   z-index: 1000;
@@ -20,7 +21,6 @@
 
 .header-transparent {
   background-color: var(--header-bg-first);
-  backdrop-filter: blur(4px);
 }
 
 .header-solid {
