@@ -1,9 +1,30 @@
 .footer-main {
-  height: var(--footer-height);
+  padding: 1.5rem 0;
   width: 100%;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1em;
   background: var(--header-bg);
+}
+
+.thanks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0 5rem;
+  box-sizing: border-box;
+}
+
+.link-footer:hover {
+  color: var(--footer-link-color);
+}
+
+.last-updated {
+  font-size: small;
 }

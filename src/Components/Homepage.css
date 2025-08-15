@@ -47,14 +47,14 @@
 }
 
 .hero-name {
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
 }
 
 .hero-typed {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 400;
   min-height: 2.5em;
   position: relative;

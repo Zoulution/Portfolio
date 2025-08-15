@@ -103,7 +103,10 @@ function Homepage() {
         ))}
 
         {/* Foreground content */}
-        <h1 className="hero-name">Hi, I'm Eren :)</h1>
+        <h1 className="hero-name">Hi, I'm Eren </h1>
+        <h1 className="hero-name" style={{ margin: 0, fontSize: "2.5rem" }}>
+          (づ ◕‿◕ )づ
+        </h1>
         <p className="hero-typed">
           {typedText}
           <span className="cursor">|</span>
