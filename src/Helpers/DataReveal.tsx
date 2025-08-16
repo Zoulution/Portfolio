@@ -33,9 +33,7 @@ export function useRevealOnView(
         }
       },
       {
-        threshold: 0.3,
-        // if you have a fixed header, you can reveal a bit earlier:
-        // rootMargin: "0px 0px -10% 0px",
+        threshold: 0.5, //how much needs to be visible to trigger
       }
     );
 

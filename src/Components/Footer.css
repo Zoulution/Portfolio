@@ -13,7 +13,7 @@
 .thanks {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   text-align: center;

@@ -1,9 +1,11 @@
 .aboutme {
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 2rem;
+  grid-template-areas: "photo content";
+  gap: 7vw;
   align-items: start;
-  width: min(100%, 1000px);
+  justify-content: space-between;
+  width: min(100%, 1500px);
 }
 
 .aboutme-left {
@@ -14,6 +16,7 @@
 }
 
 .aboutme-photo {
+  grid-area: photo;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -22,38 +25,70 @@
 }
 
 .aboutme-contacts {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 0.5rem;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .aboutme-btn {
   display: inline-flex;
   align-items: center;
+}
+
+.aboutme-btn .icon,
+.aboutme-btn span {
+  display: inline-flex;
+  align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 0.9rem;
-  border-radius: 12px;
-  background: var(--card, rgba(0, 0, 0, 0.06));
-  color: inherit;
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-color);
   transition: transform 160ms ease, background-color 160ms ease,
     border-color 160ms ease;
 }
 
 .aboutme-btn .icon {
-  width: 18px;
-  height: 18px;
+  width: 34px;
+  height: 34px;
+  fill: none;
 }
 
-.aboutme-btn:hover {
+.aboutme-btn span {
+  font-size: 1.8rem;
+}
+
+.aboutme-btn .icon:hover,
+.aboutme-btn span:hover {
   transform: translateY(-1px);
-  background: var(--cardHover, rgba(0, 0, 0, 0.08));
-  border-color: rgba(0, 0, 0, 0.12);
+  color: #777;
+  stroke: #777;
+  z-index: 1;
+}
+
+.aboutme-btn .email:hover {
+  transform: translateY(1px);
+  color: #777;
+  stroke: #777;
+  z-index: 1;
+}
+
+.aboutme-btn .email {
+  transform: translateY(2px);
+}
+
+.aboutme-right-container {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .aboutme-right {
   line-height: 1.65;
+  font-size: 1.4rem;
 }
 
 .aboutme-title {
@@ -71,17 +106,20 @@
 .d1 {
   transition-delay: 80ms;
 }
-.d2:nth-child(1) {
+.d2 {
   transition-delay: 160ms;
 }
-.d2:nth-child(2) {
-  transition-delay: 240ms;
+
+.aboutme-contacts .aboutme-btn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 420ms ease, transform 420ms ease;
+  transition-delay: calc(var(--i, 1) * 120ms); /* 120ms per index */
 }
-.d2:nth-child(3) {
-  transition-delay: 320ms;
-}
-.d3 {
-  transition-delay: 400ms;
+
+.section.is-visible .aboutme-contacts .aboutme-btn {
+  opacity: 1;
+  transform: none;
 }
 
 .section.is-visible .stagger {
@@ -97,8 +135,61 @@
   }
 }
 
-@media (max-width: 860px) {
+/* ====== <= 1160px layout & timing tweaks ====== */
+@media (max-width: 1160px) {
   .aboutme {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "photo"
+      "content";
+    gap: 2rem;
+    align-items: start;
+    justify-content: stretch;
+  }
+
+  .aboutme-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutme-photo {
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .aboutme-right-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* --- animation order change: d3 before d2 --- */
+  .d1 {
+    transition-delay: 80ms;
+  }
+  .d2 {
+    transition-delay: 400ms;
+  }
+  .aboutme-contacts .aboutme-btn {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 420ms ease, transform 420ms ease;
+    transition-delay: 240ms;
+  }
+}
+
+@media (max-width: 530px) {
+  .aboutme-right {
+    line-height: 1.5;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .aboutme-right {
+    line-height: 1.5;
+    font-size: 1.1rem;
   }
 }
