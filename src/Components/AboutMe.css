@@ -178,6 +178,10 @@
     transition: opacity 420ms ease, transform 420ms ease;
     transition-delay: 240ms;
   }
+
+  .aboutme-right p {
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 530px) {

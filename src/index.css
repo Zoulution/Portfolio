@@ -25,6 +25,8 @@
   --footer-link-color: rgb(56, 56, 250);
   --background-bar: #888;
   --forground-bar: #ddd;
+  --accent: rgb(82, 82, 248);
+  --rail-strong: grey;
 }
 
 :root[data-theme="dark"] {
@@ -39,6 +41,8 @@
   --footer-link-color: rgb(172, 172, 245);
   --background-bar: #ddd;
   --forground-bar: #5c5c5c;
+  --accent: #3b82f6;
+  --rail-strong: #9ca3af;
 }
 
 html {

@@ -129,7 +129,7 @@ function Homepage() {
         <div className="section-bar">
           <div className="section-bar-fill"></div>
         </div>
-        <h1>Resume</h1>
+        <h1>Background</h1>
         <Resume />
       </section>
       <section id="projects" className="section" data-reveal>
