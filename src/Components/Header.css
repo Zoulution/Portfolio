@@ -159,6 +159,9 @@
   border-radius: 8px;
   background: var(--indicator-color);
   border: 1px solid var(--indicator-border);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 @media (max-width: 900px) {
@@ -171,6 +174,8 @@
   .header-solid .icon-btn {
     background-color: var(--indicator-color);
     border: 1px solid var(--indicator-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   .header-solid .icon-btn:hover .icon {
     color: var(--text-color);
