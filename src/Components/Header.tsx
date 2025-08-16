@@ -21,6 +21,9 @@ type Indicator = {
 export function Header() {
   const { theme, mode, toggle, resetToSystem } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navRef = useRef<HTMLElement | null>(null);
   const [ind, setInd] = useState<Indicator>({
@@ -30,9 +33,6 @@ export function Header() {
     height: 0,
     visible: false,
   });
-
-  // NEW: mobile state
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const getTop = () =>
@@ -60,9 +60,7 @@ export function Header() {
 
   useEffect(() => {
     function onResize() {
-      // keep indicator aligned on desktop
       if (window.matchMedia("(max-width: 900px)").matches) {
-        // close mobile on resize into mobile to ensure clean state
         setInd((s) => ({ ...s, visible: false }));
       } else if (ind.visible) {
         const active = document.querySelector(
@@ -70,31 +68,48 @@ export function Header() {
         ) as HTMLElement | null;
         if (active) positionFromEl(active);
       }
-      // if we resized OUT of mobile, ensure the menu closes
       if (!window.matchMedia("(max-width: 900px)").matches) {
         setMobileOpen(false);
       }
     }
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ind.visible]);
 
-  // Close mobile menu on Esc and on hash navigation
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setMobileOpen(false);
     }
+
     function onHashChange() {
       setMobileOpen(false);
     }
+
+    function onPointerDown(e: MouseEvent | TouchEvent) {
+      if (!mobileOpen) return;
+      const target = e.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        toggleBtnRef.current &&
+        !toggleBtnRef.current.contains(target)
+      ) {
+        setMobileOpen(false);
+      }
+    }
+
     window.addEventListener("keydown", onKey);
     window.addEventListener("hashchange", onHashChange);
+    window.addEventListener("mousedown", onPointerDown);
+    window.addEventListener("touchstart", onPointerDown);
+
     return () => {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener("mousedown", onPointerDown);
+      window.removeEventListener("touchstart", onPointerDown);
     };
-  }, []);
+  }, [mobileOpen]);
 
   function positionFromEl(el: HTMLElement) {
     const nav = navRef.current;
@@ -114,7 +129,6 @@ export function Header() {
 
   function handleEnter(e: React.MouseEvent<HTMLAnchorElement>) {
     const el = e.currentTarget;
-    // disable desktop hover indicator on mobile widths
     if (window.matchMedia("(max-width: 900px)").matches) return;
     el.classList.add("is-hovered");
     positionFromEl(el);
@@ -161,7 +175,6 @@ export function Header() {
         }}
         aria-hidden
       />
-      {/* Desktop list */}
       <ul className="header-list">
         {LINKS.map((l) => (
           <li key={l.href}>
@@ -179,7 +192,6 @@ export function Header() {
       </ul>
 
       <div className="header-actions">
-        {/* Theme toggle stays always visible */}
         <button
           className="icon-btn"
           aria-label={`Toggle theme (currently ${
@@ -199,8 +211,8 @@ export function Header() {
           )}
         </button>
 
-        {/* NEW: Hamburger (shown only at ≤ 900px via CSS) */}
         <button
+          ref={toggleBtnRef}
           className="icon-btn hamburger-btn"
           aria-label={`${mobileOpen ? "Close" : "Open"} menu`}
           aria-expanded={mobileOpen}
@@ -211,8 +223,8 @@ export function Header() {
         </button>
       </div>
 
-      {/* NEW: Mobile panel */}
       <div
+        ref={menuRef}
         id="mobile-menu"
         className={`mobile-panel ${mobileOpen ? "open" : ""}`}
         role="dialog"
