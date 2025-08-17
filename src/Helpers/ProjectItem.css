@@ -77,8 +77,8 @@
 
 .tag {
   background: #f0f0f0;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
   font-size: 1.1rem;
   background: var(--tag-bg);
   border: 1px solid var(--tag-border);
