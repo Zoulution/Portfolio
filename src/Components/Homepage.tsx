@@ -7,7 +7,7 @@ import stGeorgen from "../assets/stGeorgen.jpeg";
 import vienenburg from "../assets/Vienenburg.jpg";
 import zurich from "../assets/Zurich.jpg";
 import AboutMe from "./AboutMe";
-import Resume from "./Resume";
+import Background from "./Background";
 import Projects from "./Projects";
 import { useRevealOnView } from "../Helpers/DataReveal";
 
@@ -93,7 +93,19 @@ function Homepage() {
 
   // Reveal sections on scroll
   // This will add the 'is-visible' class to sections when they come into view
-  useRevealOnView(".section[data-reveal]", 0 /* ms */);
+  useRevealOnView(".section[data-reveal]:not(#projects)", {
+    threshold: 0.2,
+    delayMs: 0,
+    once: true,
+  });
+
+  // reveal the Projects *section* when the first project title appears
+  useRevealOnView("#projects .project-title", {
+    threshold: 1,
+    delayMs: 0,
+    once: true,
+    revealClosest: "[data-reveal]",
+  });
 
   return (
     <div className="container-homepage">
@@ -130,7 +142,7 @@ function Homepage() {
           <div className="section-bar-fill"></div>
         </div>
         <h1>Background</h1>
-        <Resume />
+        <Background />
       </section>
       <section id="projects" className="section" data-reveal>
         <div className="section-bar">

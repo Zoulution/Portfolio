@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "./Resume.css";
+import "./Background.css";
 
 type EduStatus = "done" | "ongoing" | "planned";
 
