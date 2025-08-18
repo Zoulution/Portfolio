@@ -42,7 +42,7 @@ export default function ProjectCard({
       {/* Title */}
       <div className="header-project">
         <h2 className="project-title">
-          <a href={detailLink} target="_blank" rel="noopener noreferrer">
+          <a href={detailLink} rel="noopener noreferrer">
             {title}
           </a>
         </h2>
@@ -117,7 +117,7 @@ export default function ProjectCard({
             </a>
           )}
           {detailLink && (
-            <a href={detailLink} target="_blank" rel="noopener noreferrer">
+            <a href={detailLink} rel="noopener noreferrer">
               <ExternalLink size={18} /> Details
             </a>
           )}

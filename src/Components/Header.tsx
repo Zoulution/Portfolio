@@ -146,9 +146,62 @@ export function Header() {
       .forEach((n) => n.classList.remove("is-hovered"));
   }
 
-  function handleClick() {
+  useEffect(() => {
+    const onHash = () => scrollToHash();
+    const onPop = () => scrollToHash();
+    requestAnimationFrame(() => scrollToHash());
+    window.addEventListener("hashchange", onHash);
+    window.addEventListener("popstate", onPop);
+    return () => {
+      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("popstate", onPop);
+    };
+  }, []);
+
+  function scrollToHash(hash?: string) {
+    const id = (hash ?? window.location.hash).replace(/^#/, "");
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    requestAnimationFrame(() => {
+      const headerH = navRef.current?.offsetHeight ?? 0;
+      const y =
+        el.getBoundingClientRect().top +
+        (window.pageYOffset || 0) -
+        headerH * 2;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+  }
+
+  function handleNavClick(
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) {
+    e.preventDefault();
+
+    const id = href.startsWith("#") ? href.slice(1) : href.replace(/^.*#/, "");
+    if (!id) return;
+
+    const base =
+      (import.meta as any)?.env?.BASE_URL != null
+        ? (import.meta as any).env.BASE_URL
+        : "/";
+    const basePathname = new URL(base, window.location.origin).pathname;
+
+    if (window.location.pathname !== basePathname) {
+      const target = `${basePathname}#${id}`;
+      window.location.assign(target);
+      return;
+    }
+
+    if (window.location.hash !== `#${id}`) {
+      window.location.hash = `#${id}`;
+    } else {
+      scrollToHash(`#${id}`);
+    }
+
     setInd((s) => ({ ...s, visible: false }));
-    // If in mobile, clicking a link should close the panel
     setMobileOpen(false);
   }
 
@@ -183,7 +236,7 @@ export function Header() {
               href={l.href}
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
-              onClick={handleClick}
+              onClick={(e) => handleNavClick(e, l.href)}
             >
               {l.label}
             </a>
@@ -233,7 +286,11 @@ export function Header() {
         <ul className="mobile-list">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a className="mobile-link" href={l.href} onClick={handleClick}>
+              <a
+                className="mobile-link"
+                href={l.href}
+                onClick={(e) => handleNavClick(e, l.href)}
+              >
                 {l.label}
               </a>
             </li>
