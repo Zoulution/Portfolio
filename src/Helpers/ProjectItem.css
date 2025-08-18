@@ -136,6 +136,9 @@
   }
   .project-abstract {
     margin: 0.5rem;
+    text-align: justify;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
   .tags {
     justify-content: center;
