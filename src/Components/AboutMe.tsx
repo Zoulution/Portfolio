@@ -48,6 +48,7 @@ export default function AboutMe() {
             className="aboutme-btn"
             style={{ ["--i" as any]: 2 }}
             href="mailto:erenhomburg@gmail.com"
+            target="_blank"
             aria-label="Send email to erenhomburg@gmail.com"
           >
             <Mail className="icon email" />

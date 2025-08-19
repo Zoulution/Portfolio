@@ -129,7 +129,7 @@
   outline: none;
 }
 .filter-toggle svg {
-  transform: rotate(180deg);
+  transform: rotate(-90deg);
   transition: transform 0.2s ease;
 }
 
@@ -159,6 +159,11 @@
   gap: 0.5rem;
   justify-content: center;
   padding-top: 0.25rem;
+}
+
+.count-filter {
+  margin-left: 5px;
+  opacity: 0.8;
 }
 
 /* Responsive adjustments */

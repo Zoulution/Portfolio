@@ -199,6 +199,96 @@
   color: var(--muted, #666);
 }
 
+/* ---------- Collapsible Work Description ---------- */
+.position-toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0.15rem 0 0.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font: inherit;
+  text-align: inherit;
+  justify-content: end;
+  color: inherit;
+  outline: none;
+}
+
+.position-toggle:focus {
+  outline: none;
+}
+
+.position-toggle:focus-visible {
+  outline: 2px solid var(--accent, #3b82f6);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+.chevron {
+  display: flex;
+}
+
+/* the rotating icon '>' */
+.chevron svg {
+  transform: rotate(0deg);
+  transition: transform 220ms ease;
+  width: 20px;
+  height: 20px;
+}
+
+.position-toggle.is-open .chevron svg {
+  transform: rotate(90deg);
+}
+
+/* ---- Collapsible description ---- */
+.work-desc-wrap {
+  contain: inline; /* modern browsers */
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 1rem;
+  transition: max-height 420ms ease, opacity 300ms ease 60ms;
+}
+
+.work-desc-wrap.is-open {
+  max-height: 600px;
+  contain: content;
+  opacity: 1;
+}
+
+/* Dotted (bullet) list look */
+.work-desc {
+  list-style: none; /* hide native bullets */
+  padding: 0;
+  margin: 0.35rem 0 0;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted, #555);
+  font-size: 1rem;
+}
+
+.work-desc li {
+  position: relative;
+  padding-right: 1.5rem; /* space for the right-side dot */
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.work-desc li::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.6em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.9;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1090px) {
   .resume-container {
@@ -220,14 +310,46 @@
     justify-items: start;
   }
 
-  /* move the connector to the LEFT side */
   .timeline--right .edu-step-vertical:not(:last-child) .edu-marker::after {
     left: calc((var(--circle) / 2) - (var(--line-w) / 2));
-    right: auto; /* override the wide-screen 'right:' */
+    right: auto;
   }
 
   .work-header {
     justify-content: start;
+    max-width: max-content;
+  }
+
+  /* Collapsible description */
+  .position-toggle {
+    justify-content: start;
+  }
+
+  .work-desc {
+    list-style: disc;
+    padding-left: 1.2rem; /* standard indentation */
+    margin: 0.35rem 0 0;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--muted, #555);
+    font-size: 1rem;
+  }
+
+  .work-desc li {
+    position: static;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .work-desc li::after {
+    display: none;
+  }
+  .work-desc-wrap {
+    contain: inline-size;
+    margin-top: 0rem;
+  }
+  .work-desc-wrap.is-open {
+    contain: content;
   }
 }
 
@@ -261,6 +383,9 @@
   }
 
   .work-years {
+    font-size: 0.9rem;
+  }
+  .work-desc li {
     font-size: 0.9rem;
   }
 }
@@ -297,5 +422,14 @@
 
   .work-years {
     font-size: 0.8rem;
+  }
+  .work-desc li {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron svg {
+    transition: none !important;
   }
 }

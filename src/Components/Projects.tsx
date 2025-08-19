@@ -7,11 +7,19 @@ export default function Projects() {
   const [selected, setSelected] = useState<string[]>([]);
   const [showPicker, setShowPicker] = useState(false);
 
-  const allTags = useMemo(() => {
-    const set = new Set<string>();
-    projects.forEach((p) => p.tags.forEach((t) => set.add(t)));
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  const tagCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    projects.forEach((p) => {
+      p.tags.forEach((t) => {
+        counts.set(t, (counts.get(t) ?? 0) + 1);
+      });
+    });
+    return counts;
   }, []);
+
+  const allTags = useMemo(() => {
+    return Array.from(tagCounts.keys()).sort((a, b) => a.localeCompare(b));
+  }, [tagCounts]);
 
   const toggleTag = (tag: string) =>
     setSelected((prev) =>
@@ -45,8 +53,6 @@ export default function Projects() {
             className="leftside-filter"
             onClick={() => setShowPicker((v) => !v)}
           >
-            <span className="filter-count">{countLabel}</span>
-
             {/* chevron toggle */}
             <button
               type="button"
@@ -71,6 +77,8 @@ export default function Projects() {
                 />
               </svg>
             </button>
+
+            <span className="filter-count">{countLabel}</span>
           </div>
 
           {selected.length > 0 && (
@@ -95,6 +103,7 @@ export default function Projects() {
           <div className="filter-tags">
             {allTags.map((tag) => {
               const active = selected.includes(tag);
+              const count = tagCounts.get(tag) ?? 0;
               return (
                 <button
                   key={tag}
@@ -106,7 +115,7 @@ export default function Projects() {
                     active ? `Remove filter: ${tag}` : `Add filter: ${tag}`
                   }
                 >
-                  {tag}
+                  {tag} <span className="count-filter"> {count} </span>
                 </button>
               );
             })}
