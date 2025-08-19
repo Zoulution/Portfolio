@@ -245,7 +245,7 @@
 
 /* ---- Collapsible description ---- */
 .work-desc-wrap {
-  contain: inline; /* modern browsers */
+  contain: strict;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
@@ -345,7 +345,6 @@
     display: none;
   }
   .work-desc-wrap {
-    contain: inline-size;
     margin-top: 0rem;
   }
   .work-desc-wrap.is-open {
