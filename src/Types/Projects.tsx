@@ -1,7 +1,7 @@
 type ProjectType = {
   title: string;
   year: number;
-  yearEnd?: number; // if not present it defaults to "present"
+  yearEnd?: number; // if not present it defaults to "Present"
   detailLink: string;
   abstract: string;
   image: string;

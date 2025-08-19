@@ -1,4 +1,23 @@
 .d-box-container {
   color: var(--text-color);
   padding: 0 4rem;
+  background: var(--bg);
+}
+
+.title-projectContainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.title-left-projectContainer {
+  text-align: start;
+}
+
+.title-right-projectContainer {
+  width: 50%;
+  height: auto;
+}
+
+.link-projectDetails {
+  color: var(--text-color);
 }
