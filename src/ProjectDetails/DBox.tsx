@@ -3,6 +3,7 @@ import projects from "../Helpers/ProjectList";
 import type { ProjectType } from "../Types/Projects";
 import type { ProjectDetails } from "../Types/ProjectDetails";
 import { ExternalLink, Github } from "lucide-react";
+import { Footer } from "../Components/Footer";
 
 function sortProjectsByEnd(projects: ProjectType[]) {
   return [...projects].sort((a, b) => {
@@ -48,8 +49,16 @@ function renderWithImages(content: string) {
 
 function Section({ title, content }: { title: string; content?: string }) {
   if (!content || !content.trim()) return null;
+
+  const className =
+    "section " +
+    title
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+
   return (
-    <section style={{ marginTop: "1.5rem" }}>
+    <section className={className} style={{ marginTop: "1.5rem" }}>
       <h1>{title}</h1>
       <p>{renderWithImages(content.trim())}</p>
     </section>
@@ -73,76 +82,101 @@ export default function DBox() {
     website: decompositionBox.website,
     oneLiner: "Decomposition tool helping young learners learn problem solving",
 
+    authors: "Eren Homburg",
     year: decompositionBox.year,
     yearEnd: decompositionBox.yearEnd,
-    image: decompositionBox.image,
+    image: "/ProjectsHeader/DBOX.png",
 
     abstract: decompositionBox.abstract,
     walkthrough: "https://www.youtube.com/watch?v=8b1a9c4f3d0",
     infrastructure:
       "Cloudeflare Workers, /DetailedProjectsImg/Deployment.png Cloudflare KV, Cloudflare Pages",
 
-    tags: decompositionBox!.tags,
+    tags: decompositionBox.tags,
   };
 
   return (
-    <div className="d-box-container">
-      <div className="title-projectContainer">
-        <div className="title-left-projectContainer">
-          <h2>
-            {dboxDetails.title}
-            {dboxDetails.github && (
-              <a
-                href={dboxDetails.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="link-projectDetails" />
-              </a>
-            )}
-            {dboxDetails.website && (
-              <a
-                href={dboxDetails.website}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="link-projectDetails" />
-              </a>
-            )}
-          </h2>
+    <>
+      <div className="d-box-container">
+        <div className="title-projectContainer">
+          {dboxDetails.image && (
+            <div
+              className="title-right-projectContainer"
+              style={{ backgroundImage: `url(${dboxDetails.image})` }}
+            />
+          )}
+          <div className="title-left-projectContainer">
+            <div className="topPart">
+              <h1>{dboxDetails.title}</h1>
 
-          {dboxDetails.oneLiner && <p>{dboxDetails.oneLiner}</p>}
-
-          {dboxDetails.yearEnd
-            ? dboxDetails.year === dboxDetails.yearEnd
-              ? dboxDetails.year
-              : `${dboxDetails.year} - ${dboxDetails.yearEnd}`
-            : `${dboxDetails.year} - Present`}
+              {dboxDetails.oneLiner && (
+                <p className="oneLiner">"{dboxDetails.oneLiner}"</p>
+              )}
+            </div>
+            <div className="authorsAndYear">
+              {dboxDetails.authors}
+              <p style={{ margin: 0 }}>
+                {dboxDetails.yearEnd
+                  ? dboxDetails.year === dboxDetails.yearEnd
+                    ? dboxDetails.year
+                    : `${dboxDetails.year} - ${dboxDetails.yearEnd}`
+                  : `${dboxDetails.year} - Present`}
+              </p>
+            </div>
+            <div className="tagsAndLinks">
+              {/* Tags */}
+              <div className="tags detailed">
+                {dboxDetails.tags.map((tag, i) => (
+                  <span key={`${tag}-${i}`} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="links detailed">
+                {dboxDetails.github && (
+                  <a
+                    href={dboxDetails.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="link-projectDetails" />
+                    Github
+                  </a>
+                )}
+                {dboxDetails.website && (
+                  <a
+                    href={dboxDetails.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="link-projectDetails" />
+                    External Link
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-
-        {dboxDetails.image && (
-          <img
-            className="title-right-projectContainer"
-            src={dboxDetails.image}
-            alt={dboxDetails.title}
+        <div className="main-detailedProject">
+          {/* Sections from Abstract down */}
+          <Section title="Abstract" content={dboxDetails.abstract} />
+          <Section
+            title="Problem Statement"
+            content={dboxDetails.problemStatement}
           />
-        )}
+          <Section title="Solution" content={dboxDetails.solution} />
+          <Section title="Features" content={dboxDetails.features} />
+          <Section title="Walkthrough" content={dboxDetails.walkthrough} />
+          <Section
+            title="Infrastructure"
+            content={dboxDetails.infrastructure}
+          />
+          <Section title="Challenges" content={dboxDetails.challenges} />
+          <Section title="Results" content={dboxDetails.results} />
+          <Section title="Future-Work" content={dboxDetails.futureWork} />
+        </div>
       </div>
-      <div className="main-detailedProject">
-        {/* Sections from Abstract down */}
-        <Section title="Abstract" content={dboxDetails.abstract} />
-        <Section
-          title="Problem Statement"
-          content={dboxDetails.problemStatement}
-        />
-        <Section title="Solution" content={dboxDetails.solution} />
-        <Section title="Features" content={dboxDetails.features} />
-        <Section title="Walkthrough" content={dboxDetails.walkthrough} />
-        <Section title="Infrastructure" content={dboxDetails.infrastructure} />
-        <Section title="Challenges" content={dboxDetails.challenges} />
-        <Section title="Results" content={dboxDetails.results} />
-        <Section title="Future-Work" content={dboxDetails.futureWork} />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }

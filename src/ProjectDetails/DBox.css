@@ -5,19 +5,153 @@
 }
 
 .title-projectContainer {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.title-left-projectContainer {
-  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--header-height));
 }
 
 .title-right-projectContainer {
-  width: 50%;
-  height: auto;
+  display: block;
+  width: 100%;
+  height: 40%;
+  max-width: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.link-projectDetails {
-  color: var(--text-color);
+.title-left-projectContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.topPart h1 {
+  margin: 0;
+}
+
+.oneLiner {
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.authorsAndYear {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.tags.detailed {
+  justify-content: center;
+}
+
+.links.detailed {
+  margin-top: 2rem;
+}
+
+.section.abstract p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.problem-statement p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.solution p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.features p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.walkthrough p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.infrastructure p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.challenges p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.result p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.section.future-work p {
+  width: 100%;
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.main-detailedProject .section:last-of-type {
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 530px) {
+  .topPart h1 {
+    font-size: 3rem;
+  }
+
+  .topPart .oneLiner {
+    font-size: 1.6rem;
+  }
+  .authorsAndYear {
+    font-size: 1.4rem;
+  }
+  .title-left-projectContainer,
+  .authorsAndYear {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .topPart h1 {
+    font-size: 2.5rem;
+  }
+  .topPart .oneLiner {
+    font-size: 1.5rem;
+  }
+  .authorsAndYear {
+    font-size: 1.3rem;
+  }
+  .title-left-projectContainer,
+  .authorsAndYear {
+    gap: 3rem;
+  }
 }

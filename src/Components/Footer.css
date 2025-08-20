@@ -8,6 +8,7 @@
   align-items: center;
   gap: 1em;
   background: var(--header-bg);
+  color: var(--text-color);
 }
 
 .thanks {
