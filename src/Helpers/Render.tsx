@@ -66,7 +66,7 @@ function renderContent(content: string) {
             }}
           />
           {caption && (
-            <figcaption className="media-caption">{caption}</figcaption>
+            <figcaption className="media-caption">Figure: {caption}</figcaption>
           )}
         </figure>
       );
@@ -81,9 +81,6 @@ function renderContent(content: string) {
               src={ytEmbed}
               title={alt || "Video"}
               style={{
-                width: "100%",
-                aspectRatio: "16 / 9",
-                border: 0,
                 maxWidth: width ? `${width}px` : "900px",
               }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -94,8 +91,6 @@ function renderContent(content: string) {
               controls
               className="media-embed"
               style={{
-                width: "100%",
-                height: "auto",
                 maxWidth: width ? `${width}px` : "900px",
               }}
             >
@@ -104,7 +99,7 @@ function renderContent(content: string) {
             </video>
           )}
           {caption && (
-            <figcaption className="media-caption">{caption}</figcaption>
+            <figcaption className="media-caption">Video: {caption}</figcaption>
           )}
         </figure>
       );

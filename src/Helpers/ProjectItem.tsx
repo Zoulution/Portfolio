@@ -1,7 +1,7 @@
 import "./ProjectItem.css";
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -27,13 +27,30 @@ export default function ProjectCard({
   website,
 }: ProjectCardProps) {
   const [showAllTags, setShowAllTags] = useState(false);
+  const thresholdProjects = useResponsiveThreshold(0, 0.2);
 
+  function useResponsiveThreshold(smallVpValue: number, normalValue: number) {
+    const [t, setT] = useState(normalValue);
+
+    useEffect(() => {
+      const set = () =>
+        setT(window.innerHeight < 400 ? smallVpValue : normalValue);
+      set(); // initial
+      window.addEventListener("resize", set);
+      window.addEventListener("orientationchange", set);
+      return () => {
+        window.removeEventListener("resize", set);
+        window.removeEventListener("orientationchange", set);
+      };
+    }, [smallVpValue, normalValue]);
+    return t;
+  }
   return (
     <motion.div
       className="project-item"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: thresholdProjects }}
       transition={{
         layout: { duration: 0.4, ease: "easeInOut" },
         duration: 0.6,

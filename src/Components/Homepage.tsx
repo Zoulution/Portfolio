@@ -60,7 +60,7 @@ function useTypedLoop(
         }, typingSpeed / 2);
       } else {
         setIndex((i) => (i + 1) % phrases.length);
-        setPhase("start-pausing"); // go to new wait phase
+        setPhase("start-pausing");
       }
     }
 
@@ -73,6 +73,14 @@ function useTypedLoop(
 function Homepage() {
   const typedText = useTypedLoop(PHRASES, 100 /*speed*/, 2000 /*pause*/);
   const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const { pathname, search } = window.location;
+      const newUrl = pathname + search;
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, []);
 
   //background images
   useEffect(() => {
@@ -93,15 +101,54 @@ function Homepage() {
 
   // Reveal sections on scroll
   // This will add the 'is-visible' class to sections when they come into view
-  useRevealOnView(".section[data-reveal]:not(#projects)", {
-    threshold: 0.2,
+  function useIsShortViewport(limit = 400) {
+    const [isShort, setIsShort] = useState(false);
+    useEffect(() => {
+      const onResize = () => setIsShort(window.innerHeight <= limit);
+      onResize();
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+      return () => {
+        window.removeEventListener("resize", onResize);
+        window.removeEventListener("orientationchange", onResize);
+      };
+    }, [limit]);
+    return isShort;
+  }
+
+  function useResponsiveThreshold(smallVpValue: number, normalValue: number) {
+    const [t, setT] = useState(normalValue);
+    useEffect(() => {
+      const set = () =>
+        setT(window.innerHeight < 400 ? smallVpValue : normalValue);
+      set();
+      window.addEventListener("resize", set);
+      window.addEventListener("orientationchange", set);
+      return () => {
+        window.removeEventListener("resize", set);
+        window.removeEventListener("orientationchange", set);
+      };
+    }, [smallVpValue, normalValue]);
+    return t;
+  }
+
+  const isShort = useIsShortViewport(400);
+  const thresholdSections = useResponsiveThreshold(0, 0.2);
+  const thresholdProjects = useResponsiveThreshold(0, 1);
+
+  const sectionsSelector = isShort
+    ? ".section[data-reveal]"
+    : ".section[data-reveal]:not(#projects)";
+
+  useRevealOnView(sectionsSelector, {
+    threshold: thresholdSections,
     delayMs: 0,
     once: true,
   });
 
-  // reveal the Projects *section* when the first project title appears
-  useRevealOnView("#projects .project-title", {
-    threshold: 1,
+  // disable the projects observer on short viewports by using a "no-op" selector
+  useRevealOnView(isShort ? "#__skip__" : "#projects .project-title", {
+    threshold: thresholdProjects,
     delayMs: 0,
     once: true,
     revealClosest: "[data-reveal]",

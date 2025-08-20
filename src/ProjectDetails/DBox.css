@@ -73,13 +73,12 @@
   border: 0;
 }
 
-img.media-embed {
-  aspect-ratio: auto;
-  height: auto;
-}
-
 .media-caption {
-  justify-self: start;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 0.5rem;
 }
 
 .section.abstract {
@@ -92,6 +91,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.problem-statement {
@@ -103,6 +103,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.solution {
@@ -114,6 +115,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.features {
@@ -125,6 +127,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.walkthrough {
@@ -136,6 +139,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.infrastructure {
@@ -147,6 +151,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.challenges {
@@ -158,6 +163,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.result {
@@ -169,6 +175,7 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .section.future-work {
@@ -180,10 +187,11 @@ img.media-embed {
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+  font-size: 1.4rem;
 }
 
 .main-detailedProject .section:last-of-type {
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
 @media (max-width: 1440px) {
@@ -255,6 +263,21 @@ img.media-embed {
   .d-box-container {
     padding: 0 2rem;
   }
+  .section.abstract p,
+  .section.section.problem-statement p,
+  .section.solution p,
+  .section.features p,
+  .section.walkthrough p,
+  .section.infrastructure p,
+  .section.challenges p,
+  .section.result p,
+  .section.future-work p {
+    line-height: 1.5;
+    font-size: 1.2rem;
+  }
+  .media-caption {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 470px) {
@@ -270,5 +293,20 @@ img.media-embed {
   .title-left-projectContainer,
   .authorsAndYear {
     gap: 3rem;
+  }
+  .section.abstract p,
+  .section.section.problem-statement p,
+  .section.solution p,
+  .section.features p,
+  .section.walkthrough p,
+  .section.infrastructure p,
+  .section.challenges p,
+  .section.result p,
+  .section.future-work p {
+    font-size: 1rem;
+  }
+
+  .media-caption {
+    font-size: 0.9rem;
   }
 }
