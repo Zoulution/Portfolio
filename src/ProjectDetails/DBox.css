@@ -195,7 +195,7 @@
 }
 
 @media (max-width: 1440px) {
-  .section.section.problem-statement,
+  .section.problem-statement,
   .section.solution,
   .section.features,
   .section.walkthrough,
@@ -208,7 +208,7 @@
 }
 
 @media (max-width: 1200px) {
-  .section.section.problem-statement,
+  .section.problem-statement,
   .section.solution,
   .section.features,
   .section.walkthrough,
@@ -221,7 +221,7 @@
 }
 
 @media (max-width: 900px) {
-  .section.section.problem-statement,
+  .section.problem-statement,
   .section.solution,
   .section.features,
   .section.walkthrough,
@@ -264,7 +264,7 @@
     padding: 0 2rem;
   }
   .section.abstract p,
-  .section.section.problem-statement p,
+  .section.problem-statement p,
   .section.solution p,
   .section.features p,
   .section.walkthrough p,
@@ -295,7 +295,7 @@
     gap: 3rem;
   }
   .section.abstract p,
-  .section.section.problem-statement p,
+  .section.problem-statement p,
   .section.solution p,
   .section.features p,
   .section.walkthrough p,

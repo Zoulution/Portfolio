@@ -74,14 +74,6 @@ function Homepage() {
   const typedText = useTypedLoop(PHRASES, 100 /*speed*/, 2000 /*pause*/);
   const [bgIndex, setBgIndex] = useState(0);
 
-  useEffect(() => {
-    if (window.location.hash) {
-      const { pathname, search } = window.location;
-      const newUrl = pathname + search;
-      window.history.replaceState(null, "", newUrl);
-    }
-  }, []);
-
   //background images
   useEffect(() => {
     BG_IMAGES.forEach((src) => {
@@ -184,7 +176,7 @@ function Homepage() {
         <h1>About Me</h1>
         <AboutMe />
       </section>
-      <section id="resume" className="section" data-reveal>
+      <section id="background" className="section" data-reveal>
         <div className="section-bar">
           <div className="section-bar-fill"></div>
         </div>
