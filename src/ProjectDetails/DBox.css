@@ -57,11 +57,20 @@
   margin-top: 2rem;
 }
 
+.section.abstract {
+  padding: 0;
+}
+
 .section.abstract p {
-  width: 100%;
+  width: 80%;
+  max-width: 800px;
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+.section.problem-statement {
+  padding: 0;
 }
 
 .section.problem-statement p {
@@ -71,11 +80,19 @@
   overflow-wrap: break-word;
 }
 
+.section.solution {
+  padding: 0;
+}
+
 .section.solution p {
   width: 100%;
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+.section.features {
+  padding: 0;
 }
 
 .section.features p {
@@ -85,11 +102,19 @@
   overflow-wrap: break-word;
 }
 
+.section.walkthrough {
+  padding: 0;
+}
+
 .section.walkthrough p {
   width: 100%;
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+.section.infrastructure {
+  padding: 0;
 }
 
 .section.infrastructure p {
@@ -99,6 +124,10 @@
   overflow-wrap: break-word;
 }
 
+.section.challenges {
+  padding: 0;
+}
+
 .section.challenges p {
   width: 100%;
   text-align: justify;
@@ -106,11 +135,19 @@
   overflow-wrap: break-word;
 }
 
+.section.result {
+  padding: 0;
+}
+
 .section.result p {
   width: 100%;
   text-align: justify;
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+.section.future-work {
+  padding: 0;
 }
 
 .section.future-work p {
@@ -122,6 +159,12 @@
 
 .main-detailedProject .section:last-of-type {
   padding-bottom: 2rem;
+}
+
+@media (max-width: 740px) {
+  .title-right-projectContainer {
+    background-position: top left;
+  }
 }
 
 @media (max-width: 530px) {

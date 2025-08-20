@@ -58,7 +58,7 @@ function Section({ title, content }: { title: string; content?: string }) {
       .replace(/[^a-z0-9-]/g, "");
 
   return (
-    <section className={className} style={{ marginTop: "1.5rem" }}>
+    <section className={className}>
       <h1>{title}</h1>
       <p>{renderWithImages(content.trim())}</p>
     </section>
