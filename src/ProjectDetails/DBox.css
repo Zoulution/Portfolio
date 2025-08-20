@@ -70,7 +70,7 @@
 }
 
 .section.problem-statement {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.problem-statement p {
@@ -81,7 +81,7 @@
 }
 
 .section.solution {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.solution p {
@@ -92,7 +92,7 @@
 }
 
 .section.features {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.features p {
@@ -103,7 +103,7 @@
 }
 
 .section.walkthrough {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.walkthrough p {
@@ -114,7 +114,7 @@
 }
 
 .section.infrastructure {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.infrastructure p {
@@ -125,7 +125,7 @@
 }
 
 .section.challenges {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.challenges p {
@@ -136,7 +136,7 @@
 }
 
 .section.result {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.result p {
@@ -147,7 +147,7 @@
 }
 
 .section.future-work {
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .section.future-work p {
@@ -161,9 +161,54 @@
   padding-bottom: 2rem;
 }
 
+@media (max-width: 1440px) {
+  .section.section.problem-statement,
+  .section.solution,
+  .section.features,
+  .section.walkthrough,
+  .section.infrastructure,
+  .section.challenges,
+  .section.result,
+  .section.future-work {
+    padding: 0 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section.section.problem-statement,
+  .section.solution,
+  .section.features,
+  .section.walkthrough,
+  .section.infrastructure,
+  .section.challenges,
+  .section.result,
+  .section.future-work {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .section.section.problem-statement,
+  .section.solution,
+  .section.features,
+  .section.walkthrough,
+  .section.infrastructure,
+  .section.challenges,
+  .section.result,
+  .section.future-work {
+    padding: 0;
+  }
+}
+
 @media (max-width: 740px) {
   .title-right-projectContainer {
     background-position: top left;
+  }
+}
+
+@media (max-width: 600px) {
+  .d-box-container {
+    padding: 0 3rem;
   }
 }
 
@@ -181,6 +226,9 @@
   .title-left-projectContainer,
   .authorsAndYear {
     gap: 4rem;
+  }
+  .d-box-container {
+    padding: 0 2rem;
   }
 }
 

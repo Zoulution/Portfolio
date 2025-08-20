@@ -88,7 +88,53 @@ export default function DBox() {
     image: "/ProjectsHeader/DBOX.png",
 
     abstract: decompositionBox.abstract,
-    walkthrough: "https://www.youtube.com/watch?v=8b1a9c4f3d0",
+    walkthrough: `Jingle bells: Jingle Bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a
+One horse open sleigh
+Jingle bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a one
+Horse open sleigh
+Dashing through the snow
+In a one horse open sleigh
+Over the hills we go
+Laughing all the way
+Bells on Bobtails ring
+Making spirits bright
+What fun it is to ride and sing
+A sleighing song tonight
+Jingle Bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a
+One horse open sleigh
+Jingle bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a one
+Horse open sleigh
+Dashing through the snow
+In a one horse open sliegh
+Over the hills we go
+Laughing all the way
+Bells on Bobtails ring
+Making spirits bright
+What fun it is to ride and sing
+A sleighing song tonight
+Jingle Bells, Jingle Bells, Jingle all the way
+Oh what fun it is to ride in a
+One horse open sleigh
+Jingle bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a one
+Horse open sleigh
+Jingle Bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a
+One horse open sleigh
+Jingle bells, Jingle Bells
+Jingle all the way
+Oh what fun it is to ride in a one
+Horse open sleigh https://www.youtube.com/watch?v=3CWJNqyub3o `,
     infrastructure:
       "Cloudeflare Workers, /DetailedProjectsImg/Deployment.png Cloudflare KV, Cloudflare Pages",
 
