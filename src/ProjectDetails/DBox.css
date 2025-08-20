@@ -57,6 +57,31 @@
   margin-top: 2rem;
 }
 
+/* Images and Videos */
+.media-figure {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: min(100%, 900px);
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+
+.media-embed {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+img.media-embed {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.media-caption {
+  justify-self: start;
+}
+
 .section.abstract {
   padding: 0;
 }
