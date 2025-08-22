@@ -28,7 +28,7 @@ function Section({ title, content }: { title: string; content?: string }) {
   return (
     <section className={className}>
       <h1>{title}</h1>
-      <p>{renderContent(content.trim())}</p>
+      <div className="section-body">{renderContent(content.trim())}</div>
     </section>
   );
 }

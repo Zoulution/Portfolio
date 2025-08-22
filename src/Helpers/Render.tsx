@@ -96,6 +96,8 @@ function renderContent(content: string) {
       const [full, kind, rawSrc, alt = "", caption = "", widthStr] = nextMatch!;
       const width = widthStr ? Number(widthStr) : undefined;
       const kindLower = kind.toLowerCase();
+      const label = (alt || caption || "Video").trim();
+      const figcapId = caption ? `video-cap-${key}` : undefined;
 
       if (kindLower === "img") {
         out.push(
@@ -125,7 +127,9 @@ function renderContent(content: string) {
               <iframe
                 className="media-embed"
                 src={ytEmbed}
-                title={(alt || caption || "Video").trim()}
+                title={label}
+                aria-label={label}
+                aria-describedby={figcapId}
                 style={{
                   width: "100%",
                   aspectRatio: "16 / 9",
@@ -139,6 +143,9 @@ function renderContent(content: string) {
               <video
                 controls
                 className="media-embed"
+                aria-label={label}
+                title={label}
+                aria-describedby={figcapId}
                 style={{
                   width: "100%",
                   height: "auto",
@@ -150,7 +157,7 @@ function renderContent(content: string) {
               </video>
             )}
             {caption && (
-              <figcaption className="media-caption">
+              <figcaption id={figcapId} className="media-caption">
                 Video: {caption}
               </figcaption>
             )}
