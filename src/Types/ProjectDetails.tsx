@@ -1,6 +1,6 @@
 type ProjectDetails = {
   title: string;
-  authors: string;
+  authors: string[];
   github?: string;
   website?: string;
   oneLiner: string;

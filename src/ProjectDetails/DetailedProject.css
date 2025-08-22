@@ -1,4 +1,4 @@
-.d-box-container {
+.details-container {
   color: var(--text-color);
   padding: 0 4rem;
   background: var(--bg);
@@ -85,7 +85,22 @@
   padding: 0;
 }
 
-.section.abstract p {
+.section .section-body {
+  white-space: pre-line;
+}
+
+.list-block-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.list-block {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.section.abstract div {
   width: 80%;
   max-width: 800px;
   text-align: justify;
@@ -98,7 +113,7 @@
   padding: 0 5rem;
 }
 
-.section.problem-statement p {
+.section.problem-statement div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -110,7 +125,7 @@
   padding: 0 5rem;
 }
 
-.section.solution p {
+.section.solution div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -122,7 +137,7 @@
   padding: 0 5rem;
 }
 
-.section.features p {
+.section.features div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -134,7 +149,7 @@
   padding: 0 5rem;
 }
 
-.section.walkthrough p {
+.section.walkthrough div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -146,7 +161,7 @@
   padding: 0 5rem;
 }
 
-.section.infrastructure p {
+.section.infrastructure div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -158,7 +173,7 @@
   padding: 0 5rem;
 }
 
-.section.challenges p {
+.section.challenges div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -166,11 +181,11 @@
   font-size: 1.4rem;
 }
 
-.section.result {
+.section.results {
   padding: 0 5rem;
 }
 
-.section.result p {
+.section.results div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -182,7 +197,7 @@
   padding: 0 5rem;
 }
 
-.section.future-work p {
+.section.future-work div {
   width: 100%;
   text-align: justify;
   hyphens: auto;
@@ -201,7 +216,7 @@
   .section.walkthrough,
   .section.infrastructure,
   .section.challenges,
-  .section.result,
+  .section.results,
   .section.future-work {
     padding: 0 3rem;
   }
@@ -214,7 +229,7 @@
   .section.walkthrough,
   .section.infrastructure,
   .section.challenges,
-  .section.result,
+  .section.results,
   .section.future-work {
     padding: 0 1rem;
   }
@@ -227,7 +242,7 @@
   .section.walkthrough,
   .section.infrastructure,
   .section.challenges,
-  .section.result,
+  .section.results,
   .section.future-work {
     padding: 0;
   }
@@ -240,7 +255,7 @@
 }
 
 @media (max-width: 600px) {
-  .d-box-container {
+  .details-container {
     padding: 0 3rem;
   }
 }
@@ -260,18 +275,18 @@
   .authorsAndYear {
     gap: 4rem;
   }
-  .d-box-container {
+  .details-container {
     padding: 0 2rem;
   }
-  .section.abstract p,
-  .section.problem-statement p,
-  .section.solution p,
-  .section.features p,
-  .section.walkthrough p,
-  .section.infrastructure p,
-  .section.challenges p,
-  .section.result p,
-  .section.future-work p {
+  .section.abstract div,
+  .section.problem-statement div,
+  .section.solution div,
+  .section.features div,
+  .section.walkthrough div,
+  .section.infrastructure div,
+  .section.challenges div,
+  .section.results div,
+  .section.future-work div {
     line-height: 1.5;
     font-size: 1.2rem;
   }
@@ -294,15 +309,15 @@
   .authorsAndYear {
     gap: 3rem;
   }
-  .section.abstract p,
-  .section.problem-statement p,
-  .section.solution p,
-  .section.features p,
-  .section.walkthrough p,
-  .section.infrastructure p,
-  .section.challenges p,
-  .section.result p,
-  .section.future-work p {
+  .section.abstract div,
+  .section.problem-statement div,
+  .section.solution div,
+  .section.features div,
+  .section.walkthrough div,
+  .section.infrastructure div,
+  .section.challenges div,
+  .section.results div,
+  .section.future-work div {
     font-size: 1rem;
   }
 

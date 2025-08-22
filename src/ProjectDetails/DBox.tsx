@@ -1,4 +1,4 @@
-import "./DBox.css";
+import "./DetailedProject.css";
 import projects from "../Helpers/ProjectList";
 import type { ProjectType } from "../Types/Projects";
 import type { ProjectDetails } from "../Types/ProjectDetails";
@@ -48,7 +48,7 @@ export default function DBox() {
     website: found.website,
     oneLiner: "Decomposition tool helping young learners learn problem solving",
 
-    authors: "Eren Homburg",
+    authors: ["Eren Homburg"],
     year: found.year,
     yearEnd: found.yearEnd,
     image: "/ProjectsHeader/DBOX.png",
@@ -100,7 +100,7 @@ One horse open sleigh
 Jingle bells, Jingle Bells
 Jingle all the way
 Oh what fun it is to ride in a one
-Horse open sleigh {video:https://www.youtube.com/watch?v=3CWJNqyub3o|caption=Full walkthrough}`,
+Horse open sleigh {video:https://www.youtube.com/watch?v=3CWJNqyub3o|alt=Jingle Bells|caption=Full walkthrough}`,
     infrastructure:
       "Cloudeflare Workers, {img:/DetailedProjectsImg/Deployment.png|alt=Deployment diagram|caption=High-level UI} Cloudflare KV, Cloudflare Pages",
 
@@ -109,7 +109,7 @@ Horse open sleigh {video:https://www.youtube.com/watch?v=3CWJNqyub3o|caption=Ful
 
   return (
     <>
-      <div className="d-box-container">
+      <div className="details-container">
         <div className="title-projectContainer">
           {Details.image && (
             <div
@@ -126,7 +126,12 @@ Horse open sleigh {video:https://www.youtube.com/watch?v=3CWJNqyub3o|caption=Ful
               )}
             </div>
             <div className="authorsAndYear">
-              {Details.authors}
+              {Details.authors.map((author, i) => (
+                <span key={i}>
+                  {author === "Eren Homburg" ? <b>{author}</b> : author}
+                  {i < Details.authors.length - 1 ? ", " : ""}
+                </span>
+              ))}
               <p style={{ margin: 0 }}>
                 {Details.yearEnd
                   ? Details.year === Details.yearEnd

@@ -28,7 +28,7 @@ const projects: ProjectType[] = [
     yearEnd: 2024,
     detailLink: "/projects/FamilyFairShare",
     abstract:
-      "A mobile app prototype designed to help households fairly redistribute mental load. Developed through user-centered design, the project iterated low- to high-fidelity Figma prototypes, tested usability, and benchmarked task-management tools. Visualization tools like heatmaps and timelines supported planning, while gamification was streamlined to avoid extra cognitive load.",
+      "This project presents a mobile app prototype designed to help people visualize, manage, and distribute mental load within households. Through needfinding interviews, ideation, and iterative prototyping, the team created a solution that combines clarity, fairness, and simplicity with task management and visualization tools.",
     image: "/ProjectImg/FamilyShare.png",
     tags: [
       "Figma",
@@ -39,6 +39,8 @@ const projects: ProjectType[] = [
       "A/B Testing",
       "Git",
       "LATEX",
+      "HCI",
+      "UX Design",
     ],
     github: "https://github.com/ncavallini/hci-2024-09-webapp",
   },
