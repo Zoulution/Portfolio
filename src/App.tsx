@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import DBox from "./ProjectDetails/DBox";
 import UrbanAI from "./ProjectDetails/UrbanAI";
 import FamilyFairShare from "./ProjectDetails/FamilyShare";
+import FlightJetSim from "./ProjectDetails/FlightJetSim";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             path="/projects/FamilyFairShare"
             element={<FamilyFairShare />}
           />
+          <Route path="/projects/FlightJetSim" element={<FlightJetSim />} />
         </Routes>
       </Layout>
     </Router>

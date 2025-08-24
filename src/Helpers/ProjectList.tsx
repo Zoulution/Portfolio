@@ -65,6 +65,23 @@ const projects: ProjectType[] = [
     github: "https://github.com/Casa-del-dev/Bachelor-Frontend",
     website: "https://bachelor.erenhomburg.com/",
   },
+  {
+    title: "Flight Jet Sim",
+    year: 2024,
+    yearEnd: 2024,
+    detailLink: "/projects/FlightJetSim",
+    abstract: `Designed a custom jet in Blender and integrated it into Unity, developing immersive VR mechanics with realistic physics interactions.`,
+    image: "/ProjectImg/DBox.png",
+    tags: [
+      "Blender",
+      "Unity",
+      "C#",
+      "Game Development",
+      "3D Modeling",
+      "VR",
+      "Physics",
+    ],
+  },
 ];
 
 function sortProjectsByEnd(projects: ProjectType[]) {
