@@ -71,7 +71,7 @@ const projects: ProjectType[] = [
     yearEnd: 2024,
     detailLink: "/projects/FlightJetSim",
     abstract: `Designed a custom jet in Blender and integrated it into Unity, developing immersive VR mechanics with realistic physics interactions.`,
-    image: "/ProjectImg/DBox.png",
+    image: "/ProjectImg/FlightJetSim.png",
     tags: [
       "Blender",
       "Unity",

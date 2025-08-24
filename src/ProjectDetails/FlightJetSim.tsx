@@ -45,12 +45,12 @@ export default function DetailedProjectClass() {
   const Details: ProjectDetails = {
     title: found.title,
     github: found.github,
-    oneLiner: "Decomposition tool helping young learners learn problem solving",
+    oneLiner: "Experience the thrill of flying a jet in virtual reality",
 
     authors: ["Saimaneesh Yeturu", "Eren Homburg", "Stefano d'Ascanio"],
     year: found.year,
     yearEnd: found.yearEnd,
-    image: "/ProjectsHeader/UrbanAI.png",
+    image: "/ProjectsHeader/JetSim.png",
 
     abstract:
       "{video: https://youtu.be/8kRF2pPG93k|alt=Flight Jet Sim overview|caption=Thorough overview of the app, covering the problem, solution, and features}",
@@ -70,7 +70,7 @@ export default function DetailedProjectClass() {
         <div className="title-projectContainer">
           {Details.image && (
             <div
-              className="title-right-projectContainer urbanaipic"
+              className="title-right-projectContainer jetsimpic"
               style={{ backgroundImage: `url(${Details.image})` }}
             />
           )}

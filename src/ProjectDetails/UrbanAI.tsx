@@ -45,7 +45,7 @@ export default function DetailedProjectClass() {
   const Details: ProjectDetails = {
     title: found.title,
     github: found.github,
-    oneLiner: "Decomposition tool helping young learners learn problem solving",
+    oneLiner: "Transforming street views into global urban insights",
 
     authors: [
       "Saimaneesh Yeturu",

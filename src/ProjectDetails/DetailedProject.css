@@ -29,6 +29,11 @@
   background-position: center;
 }
 
+.jetsimpic {
+  width: 100%;
+  background-position: center;
+}
+
 .dboxpic {
   width: min(100%, 1080px);
 }
