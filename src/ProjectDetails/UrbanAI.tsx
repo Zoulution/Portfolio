@@ -33,7 +33,7 @@ function Section({ title, content }: { title: string; content?: string }) {
   );
 }
 
-export default function DBox() {
+export default function DetailedProjectClass() {
   const sorted = sortProjectsByEnd(projects);
 
   const found = sorted.find((p) => p.title === "Urban AI");

@@ -49,8 +49,7 @@ const projects: ProjectType[] = [
     year: 2025,
     yearEnd: 2025,
     detailLink: "/projects/DBox",
-    abstract:
-      "An AI-assisted programming tutor that supports abstraction and modular reasoning in problem solving. Redesigned with human-centered design principles, it integrates visual scaffolding and decomposition guidance. User studies showed high usability (SUS 77.14) and strong engagement, highlighting its potential to improve procedural fluency in programming education.",
+    abstract: `Presenting DBox Plus, an extension of the Decomposition Box system that scaffolds programming education through structured decomposition and abstraction. Implemented in React/TypeScript with Pyodide and OpenAI’s gpt-4o, the system provides an interactive step tree, progressive hints, and an abstraction overlay highlighting reusable patterns. A user study (n=7) showed strong usability (SUS = 77) and learning gains, though some participants struggled bridging abstract reasoning with syntax. Findings suggest DBox Plus fosters modular thinking while highlighting future needs in durable abstraction practices and AI collaboration.`,
     image: "/ProjectImg/DBox.png",
     tags: [
       "Python",
@@ -61,6 +60,7 @@ const projects: ProjectType[] = [
       "Figma",
       "Git",
       "VS Code",
+      "Bachelor Thesis",
     ],
     github: "https://github.com/Casa-del-dev/Bachelor-Frontend",
     website: "https://bachelor.erenhomburg.com/",

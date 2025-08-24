@@ -33,7 +33,7 @@ function Section({ title, content }: { title: string; content?: string }) {
   );
 }
 
-export default function DBox() {
+export default function DetailedProjectClass() {
   const sorted = sortProjectsByEnd(projects);
 
   const found = sorted.find((p) => p.title === "Family FairShare");
@@ -58,7 +58,7 @@ export default function DBox() {
 
     year: found.year,
     yearEnd: found.yearEnd,
-    image: "/ProjectsHeader/DBOX.png",
+    image: "/ProjectsHeader/Family.png",
 
     abstract:
       "{video:https://www.youtube.com/watch?v=xhIv-Wr1tgo|alt=Family FairShare walkthrough|caption=Full walkthrough of the app, covering the problem, solution, and features}",
@@ -102,7 +102,7 @@ export default function DBox() {
         <div className="title-projectContainer">
           {Details.image && (
             <div
-              className="title-right-projectContainer"
+              className="title-right-projectContainer familysharepic"
               style={{ backgroundImage: `url(${Details.image})` }}
             />
           )}
