@@ -8,7 +8,7 @@ const projects: ProjectType[] = [
     yearEnd: 2024,
     detailLink: "/projects/UrbanAI",
     abstract:
-      "A full stack web application that extracts architectural and civil engineering insights from user-uploaded images. It features an interactive map with dynamic filtering, a responsive React frontend with authentication and Stripe integration, and a Cloudflare-based backend for scalable data handling. Advanced analysis combines Google Street View, Grounding DINO, and SAM for geo-contextual insights.",
+      "URBAN-AI, is an interactive web application that makes advanced urban data collection and analysis accessible to a wide audience. Building on state-of-the-art vision and language models, the platform enables automated extraction of architectural insights from simple street view imagery. Through a user-friendly image portal, stakeholders can upload their own photos and instantly obtain information on façade characteristics, materials, and building styles. Complementing this, an interactive map integrates the Global Facades Dataset with overlays and Street View integration, providing a global perspective on urban patterns. The system is deployed with cost-efficient cloud infrastructure and sustained by a token-based pricing model. By lowering the technical and financial barriers to urban data generation, URBAN-AI bridges the gap between AI research and practical use, supporting sustainability, policy-making, and equitable urban development worldwide.",
     image: "/ProjectImg/UrbanAI.png",
     tags: [
       "Python",
@@ -49,7 +49,7 @@ const projects: ProjectType[] = [
     year: 2025,
     yearEnd: 2025,
     detailLink: "/projects/DBox",
-    abstract: `Presenting DBox Plus, an extension of the Decomposition Box system that scaffolds programming education through structured decomposition and abstraction. Implemented in React/TypeScript with Pyodide and OpenAI’s gpt-4o, the system provides an interactive step tree, progressive hints, and an abstraction overlay highlighting reusable patterns. A user study (n=7) showed strong usability (SUS = 77) and learning gains, though some participants struggled bridging abstract reasoning with syntax. Findings suggest DBox Plus fosters modular thinking while highlighting future needs in durable abstraction practices and AI collaboration.`,
+    abstract: `Presenting DBox Plus, an extension of the Decomposition Box system that scaffolds programming education through structured decomposition and abstraction. Implemented in React/TypeScript with Pyodide and OpenAI’s gpt-4o API, the system provides an interactive step tree, progressive hints, and an abstraction overlay highlighting reusable patterns. A user study (n=7) showed strong usability (SUS = 77) and learning gains, though some participants struggled bridging abstract reasoning with syntax. Findings suggest DBox Plus fosters modular thinking while highlighting future needs in durable abstraction practices and AI collaboration.`,
     image: "/ProjectImg/DBox.png",
     tags: [
       "Python",

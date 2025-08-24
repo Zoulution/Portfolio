@@ -61,7 +61,7 @@ export default function DetailedProjectClass() {
     image: "/ProjectsHeader/Family.png",
 
     abstract:
-      "{video:https://www.youtube.com/watch?v=xhIv-Wr1tgo|alt=Family FairShare walkthrough|caption=Full walkthrough of the app, covering the problem, solution, and features}",
+      "{video:https://www.youtube.com/watch?v=xhIv-Wr1tgo|alt=Family FairShare overview|caption=Thorough overview of the app, covering the problem, solution, and features}",
     problemStatement:
       "Mental load in households is often unevenly distributed and hard to quantify. People struggle to estimate how much they carry, leading to stress, unfair division of tasks, and lack of recognition of contributions.",
     solution:
