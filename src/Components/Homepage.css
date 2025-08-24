@@ -73,8 +73,8 @@
 .hero-typed {
   font-size: 2.5rem;
   font-weight: 400;
-  min-height: 2.5em;
   position: relative;
+  margin-bottom: 0;
   z-index: 1;
 }
 
@@ -114,6 +114,37 @@
 
 .section.is-visible .section-bar-fill {
   transform: scaleX(1);
+}
+
+.hero-author {
+  opacity: 0;
+  margin-top: 0;
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: 0.2px;
+  animation: heroAuthorFadeIn 400ms ease forwards;
+  animation-delay: 120ms;
+}
+
+/* Simple fade-in keyframes */
+@keyframes heroAuthorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 470px) {
+  .hero-typed {
+    font-size: 2rem;
+  }
+  .hero-author {
+    font-size: 1.05rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

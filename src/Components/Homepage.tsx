@@ -12,10 +12,24 @@ import Projects from "./Projects";
 import { useRevealOnView } from "../Helpers/DataReveal";
 
 const PHRASES = [
-  { text: "The early bird catches the worm.", lang: "en" },
-  { text: "Chi va piano va sano e va lontano.", lang: "it" },
-  { text: "Übung macht den Meister.", lang: "de" },
-  { text: "Komşu komşunun külüne muhtaçtır.", lang: "tr" },
+  {
+    text: "Imagination is more important than knowledge, because knowledge is limited.",
+    author: "Albert Einstein",
+    lang: "en",
+  },
+  {
+    text: "Impara l’arte e mettila da parte.",
+    lang: "it",
+  },
+  {
+    text: "Man muss noch Chaos in sich haben, um einen tanzenden Stern gebären zu können.",
+    author: "Friedrich Nietzsche",
+    lang: "de",
+  },
+  {
+    text: "Bir iş bilen, bin iş yapar.",
+    lang: "tr",
+  },
 ];
 
 const BG_IMAGES = [istanbul, novazzano, stGeorgen, vienenburg, zurich];
@@ -38,9 +52,7 @@ function useTypedLoop(
     const current = phrases[index].text;
 
     if (phase === "start-pausing") {
-      timeout = setTimeout(() => {
-        setPhase("typing");
-      }, startPause);
+      timeout = setTimeout(() => setPhase("typing"), startPause);
     } else if (phase === "typing") {
       if (display.length < current.length) {
         timeout = setTimeout(() => {
@@ -50,9 +62,7 @@ function useTypedLoop(
         setPhase("pausing");
       }
     } else if (phase === "pausing") {
-      timeout = setTimeout(() => {
-        setPhase("deleting");
-      }, pause);
+      timeout = setTimeout(() => setPhase("deleting"), pause);
     } else if (phase === "deleting") {
       if (display.length > 0) {
         timeout = setTimeout(() => {
@@ -67,11 +77,15 @@ function useTypedLoop(
     return () => clearTimeout(timeout);
   }, [display, phase, index, phrases, typingSpeed, pause, startPause]);
 
-  return display;
+  return { display, phase, index };
 }
 
 function Homepage() {
-  const typedText = useTypedLoop(PHRASES, 100 /*speed*/, 2000 /*pause*/);
+  const {
+    display: typedText,
+    phase,
+    index,
+  } = useTypedLoop(PHRASES, 75 /*speed*/, 2000 /*pause*/);
   const [bgIndex, setBgIndex] = useState(0);
 
   //background images
@@ -163,10 +177,16 @@ function Homepage() {
         <h1 className="hero-name" style={{ margin: 0, fontSize: "2.5rem" }}>
           (づ ◕‿◕ )づ
         </h1>
+
         <p className="hero-typed">
           {typedText}
           <span className="cursor">|</span>
         </p>
+        {phase === "pausing" && PHRASES[index].author && (
+          <p className="hero-author" key={index}>
+            — {PHRASES[index].author}
+          </p>
+        )}
       </section>
 
       <section id="about" className="section" data-reveal>
